@@ -1,4 +1,4 @@
-/* ./js/scripts.js in wip-silus-count of wip.bauska.org */
+/* /js/scripts.js in github Silus-Counter making silus-counter.bauska.org */
 /* Dec 7-8, 2024 = 10,010 (6 hours approx)
    Dec 13-14, 2024 = 24,215 (10 hours approx)
    Dec 20-22, 2024 = 55,855 (16 hours approx)
