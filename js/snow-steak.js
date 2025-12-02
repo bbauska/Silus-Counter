@@ -96,13 +96,11 @@ function resetFlake(flake) {
 
 // Move all the snowflakes
 function updatePositions() {
-
     flakes.forEach((flake) => {
         // Normalize amount of time a snowflake has been alive to the range [0, 1.0]
         let origLife = parseFloat(flake.dataset.origLife)
         let curLife = parseFloat(flake.dataset.life);
         let dt = (origLife - curLife) / origLife;
-
         if (dt <= 1.0) {
             // Fetch this flake's personalized periodicity for x-axis movement fromt he array
             let p = period[parseInt(flake.dataset.periodFunction)];
@@ -114,12 +112,10 @@ function updatePositions() {
             let z = parseFloat(flake.dataset.origZ);
             // Each update, change the CSS transformation
             flake.style.transform = `translate3d(${x}vw, ${y}vh, ${z}px)`;
-
             if (dt >= 0.5) {
                 //Start fading out flakes 1/2 down screen
                 flake.style.opacity = (1.0 - ((dt - 0.5) * 2));
             }
-
             curLife -= LIFE_PER_TICK;
             flake.dataset.life = curLife;
         }
@@ -128,7 +124,6 @@ function updatePositions() {
             resetFlake(flake);
         }
     });
-
     //Using requestAnimationFrame to update the positions for a (hopefully) smooth animation
     window.requestAnimationFrame(updatePositions);
 }
@@ -147,7 +142,6 @@ function appendSnow() {
     field.setAttribute('aria-hidden', 'true');
     field.setAttribute('role', 'presentation');
     document.body.appendChild(field);
-
     let i = 0;
 
     //Using an inner function and setTimeout to delay the initial snowfall
@@ -168,7 +162,6 @@ function appendSnow() {
         }
     };
     addFlake();
-
     updatePositions();
 }
 
